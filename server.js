@@ -46,7 +46,7 @@ app.use(express.json());
 
 // CORS middleware for allowing cross-origin requests
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins
+  res.setHeader("Access-Control-Allow-Origin", "https://momsrecipesapp.netlify.app"); // Allow  requests from Netlify domain
   res.setHeader("Access-Control-Allow-Methods", "GET, POST"); // Allowed HTTP methods
   res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // Allowed headers
   next();
