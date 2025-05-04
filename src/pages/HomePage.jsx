@@ -19,7 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("http://localhost:3001/recipes");
+        const response = await fetch("https://recipe-finder-l0py.onrender.com/recipes");
         if (!response.ok) {
           throw new Error("Error fetching recipes");
         }
