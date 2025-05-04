@@ -306,19 +306,5 @@
       "Serve the lemonade over ice cubes and garnish with lemon slices.",
       "Enjoy your refreshing Homemade Lemonade!"
     ]
-  },
-  {
-    "name": "Chocolate Milk",
-    "ingredients": [
-      "2 cups of milk",
-      "2 tablespoons of cocoa powder",
-      "2 tablespoons of sugar"
-    ],
-    "instructions": [
-      "Mix cocoa powder and sugar with a small amount of milk to form a smooth paste.",
-      "Add the paste to the remaining milk and stir well. Serve chilled or warm."
-    ],
-    "category": "Beverage",
-    "id": 1736502680034
   }
 ]
