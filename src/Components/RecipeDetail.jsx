@@ -35,7 +35,7 @@ const RecipeDetail = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/recipes/${id}`); // Fetch recipe by ID
+        const response = await fetch(`https://recipe-finder-l0py.onrender.com/recipes/${id}`); // Fetch recipe by ID
         if (!response.ok) {
           throw new Error("Recipe not found");
         }
