@@ -14,15 +14,19 @@ const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("All");
+  const [loading, setLoading] = useState(true);
 
   // Fetch recipes from the backend when the component mounts
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("https://recipe-finder-l0py.onrender.com/recipes");
+        const response = await fetch(
+          "https://recipe-finder-l0py.onrender.com/recipes"
+        );
         if (!response.ok) {
           throw new Error("Error fetching recipes");
         }
+        setLoading(false);
         const data = await response.json();
         setRecipes(data); // Set the fetched recipes into state
       } catch (error) {
@@ -74,6 +78,11 @@ const HomePage = () => {
 
         {/* Display the filtered recipes in a grid */}
         <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {loading && (
+            <p className="col-span-full text-center text-lg text-gray-500">
+              Loading the recipes...
+            </p>
+          )}
           {filteredByCategory.length > 0 ? (
             filteredByCategory.map((recipe) => (
               <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
