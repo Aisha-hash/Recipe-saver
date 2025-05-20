@@ -77,24 +77,26 @@ const HomePage = () => {
         <p className="font-bold text-3xl md:text-5xl my-5">Recipes</p>
 
         {/* Display the filtered recipes in a grid */}
-        <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {loading && (
-            <p className="col-span-full text-center text-lg text-gray-500">
-              Loading the recipes...
-            </p>
-          )}
-          {filteredByCategory.length > 0 ? (
-            filteredByCategory.map((recipe) => (
-              <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
-                <RecipeCard recipe={recipe} />
-              </Link>
-            ))
-          ) : (
-            <p className="col-span-full text-center text-lg text-gray-500">
-              No recipes found matching your search and filter.
-            </p>
-          )}
-        </div>
+
+        {loading ? (
+          <p className="col-span-full text-center text-lg text-gray-500">
+            Loading the recipes...
+          </p>
+        ) : (
+          <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {filteredByCategory.length > 0 ? (
+              filteredByCategory.map((recipe) => (
+                <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
+                  <RecipeCard recipe={recipe} />
+                </Link>
+              ))
+            ) : (
+              <p className="col-span-full text-center text-lg text-gray-500">
+                No recipes found matching your search and filter.
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
